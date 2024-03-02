@@ -4,11 +4,13 @@ from typing import List
 from models import HIDDevice
 import devices
 
+
 def make_report_string(report: List[int]):
-    report_str = ''
+    report_str = ""
     for val in report:
         report_str += f"\\\\x{val:02x}"
     return report_str
+
 
 def script_for_hid_device(hid_device: HIDDevice) -> str:
     report_byte_string = make_report_string(hid_device.report)
@@ -39,5 +41,5 @@ ln -s functions/hid.usb0 configs/c.$C/
 ls /sys/class/udc > UDC
     """
 
-print(script_for_hid_device(devices.mode.ENVOY))
 
+print(script_for_hid_device(devices.mode.ENVOY))

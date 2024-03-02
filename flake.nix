@@ -11,8 +11,7 @@
       in
       {
         devShell = with pkgs; mkShell {
-          buildInputs = [ python3 ];
-          RUST_SRC_PATH = rustPlatform.rustLibSrc;
+          buildInputs = [ python3 black ];
         };
       });
 }
